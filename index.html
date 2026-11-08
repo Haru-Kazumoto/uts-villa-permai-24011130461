@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Pesan vila di kawasan Puncak, Bogor. Cek harga dan total biaya langsung dari halaman ini.">
+  <title>Vila Permai - Sewa Vila di Puncak</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="atas">
+
+  <header class="header">
+    <div class="container header__bar">
+      <a class="header__mark" href="#atas">Vila Permai</a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="nav__link" href="#daftar-vila">Daftar vila</a>
+        <a class="nav__link" href="#pemesanan">Pemesanan</a>
+        <a class="nav__link" href="#pesanan-saya">Pesanan saya</a>
+        <a class="nav__link" href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <h1 class="hero__judul">Vila Permai</h1>
+          <p class="hero__teks">Tiga unit vila di Cisarua dan Megamendung, berdiri di kawasan Puncak yang sejuk. Anda
+            isi tanggal menginap dan jumlah tamu, lalu total biayanya muncul di layar sebelum perlu menghubungi kami.
+          </p>
+          <div class="hero__aksi">
+            <a class="tombol tombol--utama" href="#daftar-vila">Lihat daftar vila</a>
+            <a class="tombol tombol--garis" href="#pemesanan">Cek ketersediaan</a>
+          </div>
+        </div>
+
+        <dl class="fakta">
+          <div class="fakta__baris">
+            <dt class="fakta__kunci">Check-in</dt>
+            <dd class="fakta__nilai">12.00 WIB</dd>
+          </div>
+          <div class="fakta__baris">
+            <dt class="fakta__kunci">Check-out</dt>
+            <dd class="fakta__nilai">12.00 WIB</dd>
+          </div>
+          <div class="fakta__baris">
+            <dt class="fakta__kunci">Area</dt>
+            <dd class="fakta__nilai">Cisarua &amp; Megamendung</dd>
+          </div>
+          <div class="fakta__baris">
+            <dt class="fakta__kunci">Minimum sewa</dt>
+            <dd class="fakta__nilai">1 malam</dd>
+          </div>
+          <div class="fakta__baris">
+            <dt class="fakta__kunci">Kapasitas</dt>
+            <dd class="fakta__nilai">1 sampai 10 tamu</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="langkah">
+      <div class="container langkah__isi">
+        <p class="langkah__item"><span class="langkah__no">01</span><span>Pilih unit vila yang tersedia</span></p>
+        <p class="langkah__item"><span class="langkah__no">02</span><span>Isi tanggal menginap dan jumlah tamu</span>
+        </p>
+        <p class="langkah__item"><span class="langkah__no">03</span><span>Konfirmasi pesanan lewat WhatsApp</span></p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <section class="section" id="daftar-vila">
+        <div class="section__kepala">
+          <div>
+            <p class="eyebrow">01 &mdash; Unit</p>
+            <h2 class="section__judul">Pilihan vila</h2>
+            <p class="section__ket">Harga di bawah adalah harga per malam untuk satu unit, belum termasuk biaya tamu
+              tambahan bila jumlah tamu melewati kapasitas dasar.</p>
+          </div>
+
+          <div class="cari">
+            <label class="cari__label" for="input-cari">Cari vila</label>
+            <input class="cari__input" type="search" id="input-cari" placeholder="Nama, lokasi, atau fasilitas">
+          </div>
+        </div>
+
+        <div class="villa-list" id="villa-list"></div>
+        <p class="villa-kosong" id="villa-kosong" hidden>Tidak ada vila yang cocok dengan kata kunci tersebut.</p>
+      </section>
+
+      <section class="section" id="pemesanan">
+        <div class="section__kepala">
+          <div>
+            <p class="eyebrow">02 &mdash; Pemesanan</p>
+            <h2 class="section__judul">Isi data pemesanan</h2>
+            <p class="section__ket">Total biaya dihitung otomatis dari tarif per malam dan jumlah tamu, jadi Anda tidak
+              perlu menghitung sendiri sebelum memesan.</p>
+          </div>
+        </div>
+
+        <div class="pemesanan">
+          <form class="form" id="form-pesan" novalidate>
+            <div class="form__baris">
+              <div class="form__grup">
+                <label class="form__label" for="nama">Nama tamu</label>
+                <input class="form__input" type="text" id="nama" name="nama" autocomplete="name">
+                <p class="form__error" data-error="nama"></p>
+              </div>
+
+              <div class="form__grup">
+                <label class="form__label" for="pilihan-vila">Unit vila</label>
+                <select class="form__input" id="pilihan-vila" name="vila"></select>
+                <p class="form__error" data-error="vila"></p>
+              </div>
+
+              <div class="form__grup">
+                <label class="form__label" for="checkin">Tanggal check-in</label>
+                <input class="form__input" type="date" id="checkin" name="checkin">
+                <p class="form__error" data-error="checkin"></p>
+              </div>
+
+              <div class="form__grup">
+                <label class="form__label" for="checkout">Tanggal check-out</label>
+                <input class="form__input" type="date" id="checkout" name="checkout">
+                <p class="form__error" data-error="checkout"></p>
+              </div>
+
+              <div class="form__grup">
+                <label class="form__label" for="tamu">Jumlah tamu (1 sampai 10)</label>
+                <input class="form__input" type="number" id="tamu" name="tamu" min="1" max="10" value="2">
+                <p class="form__error" data-error="tamu"></p>
+              </div>
+            </div>
+
+            <div class="form__tombol">
+              <button class="tombol tombol--garis" type="button" id="tombol-cek">Cek Ketersediaan</button>
+              <button class="tombol tombol--utama" type="submit">Pesan Sekarang</button>
+            </div>
+          </form>
+
+          <aside class="hasil" id="hasil" aria-live="polite">
+            <h3 class="hasil__judul">Ringkasan biaya</h3>
+            <div class="hasil__isi" id="hasil-isi">
+              <p class="hasil__kosong">Pilih vila dan tanggal menginap untuk melihat total biaya.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="pesanan-saya">
+        <div class="section__kepala">
+          <div>
+            <p class="eyebrow">03 &mdash; Pesanan saya</p>
+            <h2 class="section__judul">Pesanan tersimpan</h2>
+            <p class="section__ket">Pesanan yang sudah dibuat dari perangkat ini. Daftar ini tersimpan di browser Anda,
+              jadi hanya terlihat di perangkat yang sama.</p>
+          </div>
+        </div>
+
+        <div id="daftar-pesanan"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer" id="kontak">
+    <div class="container">
+      <div class="footer__isi">
+        <div>
+          <p class="footer__tanda">Vila Permai</p>
+          <p class="footer__tag">Sewa vila keluarga di kawasan Puncak, Bogor. Diusahakan sendiri oleh keluarga.</p>
+        </div>
+
+        <article class="footer__blok">
+          <h3 class="footer__judul">Hubungi Pak Hendra</h3>
+          <p>WhatsApp: 0812-0000-0000</p>
+          <p>Email: vilapermai@example.com</p>
+        </article>
+
+        <article class="footer__blok">
+          <h3 class="footer__judul">Alamat</h3>
+          <p>Jl. Raya Puncak, Cisarua</p>
+          <p>Kabupaten Bogor, Jawa Barat</p>
+        </article>
+      </div>
+
+      <p class="footer__hak">Vila Permai. Tugas UTS Pemrograman Web.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
