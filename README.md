@@ -16,7 +16,17 @@ Tidak ada server maupun database. Semua data vila ada di dalam `script.js` dalam
 2. Buka folder `uts-villa-permai-24011130461`.
 3. Klik dua kali `index.html` sampai terbuka di browser.
 
-Tidak perlu install apa-apa.
+Tidak perlu install apa-apa. Halaman juga bisa dibuka langsung secara online lewat GitHub Pages pada alamat:
+
+```
+https://haru-kazumoto.github.io/uts-villa-permai-24011130461/
+```
+
+## Tampilan halaman
+
+![Tampilan halaman utama: hero, daftar vila dalam bentuk baris tabel, dan form pemesanan](screenshot/halaman-utama.png)
+
+![Halaman pemesanan dengan panel ringkasan biaya di samping form](screenshot/halaman-pemesanan.png)
 
 ## Struktur file
 
@@ -27,6 +37,9 @@ uts-villa-permai-24011130461/
   style.css
   script.js
   README.md
+  screenshot/
+    halaman-utama.png
+    halaman-pemesanan.png
 ```
 
 ## Cara hitung biaya
@@ -41,18 +54,33 @@ Sudah selesai:
 
 - [x] Daftar tiga vila yang dirender dari array di JavaScript
 - [x] Pencarian vila (nama, lokasi, fasilitas)
+- [x] Dropdown pilihan vila yang diisi otomatis dari data
 - [x] Total biaya muncul otomatis saat tanggal/jumlah tamu berubah
-- [x] Validasi form dengan pesan bahasa Indonesia
+- [x] Tombol Cek Ketersediaan
+- [x] Validasi form dengan pesan bahasa Indonesia (nama kosong, check-out sebelum check-in, tanggal lampau, jumlah tamu di luar 1-10)
 - [x] Deteksi tanggal bentrok untuk vila yang sama
-- [x] Daftar pesanan dan pembatalan pesanan disimpan di localStorage
-- [x] Tampilan responsif
+- [x] Daftar pesanan dan nama terakhir disimpan di localStorage
+- [x] Pembatalan pesanan
+- [x] Tampilan responsif (breakpoint 980px, 768px, 640px, 560px, dan 480px)
 
 Belum selesai / keterbatasan:
 
-- [ ] Pesanan hanya tersimpan di browser masing-masing tamu, jadi bentrok antar perangkat belum bisa terdeteksi
+- [ ] Pesanan hanya tersimpan di browser masing-masing tamu. Jadi kalau dua orang berbeda memesan tanggal yang sama dari HP masing-masing, bentrok belum bisa terdeteksi. Untuk itu memang butuh server atau database.
 - [ ] Belum ada foto vila
-- [ ] Belum ada pembayaran online
-- [ ] Nomor WhatsApp dan email di footer masih contoh
+- [ ] Belum ada pembayaran online, konfirmasi masih lewat WhatsApp pemilik
+- [ ] Nomor WhatsApp dan email di footer masih contoh, perlu diganti dengan data asli Pak Hendra
+
+## Tema tampilan
+
+Temanya editorial: latar kertas hangat, teks tinta, dan aksen terakota. Pemisahan antar bagian memakai garis rambut, bukan kotak dengan bayangan. Daftar vila ditampilkan sebagai baris tabel (nomor unit, nama, lokasi, harga, tombol) dan bukan kartu.
+
+Semua warna, ukuran huruf, dan jarak disimpan sebagai variabel di bagian `:root` pada `style.css`, jadi tema bisa diganti dari satu tempat. Font memakai font bawaan sistem, jadi halaman tetap bisa dibuka tanpa koneksi internet.
+
+## Pengembangan lanjutan
+
+- Branch `fitur/filter` berisi tambahan filter kapasitas tamu dan pengurutan harga pada daftar vila. Branch ini belum digabung ke `main` supaya `main` tetap berisi versi yang dinilai.
+- Tag `v1.0` menandai versi rilis pertama aplikasi.
+- GitHub Pages dipakai untuk menyajikan halaman secara online.
 
 ## Mengubah data vila
 
