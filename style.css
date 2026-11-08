@@ -1,0 +1,874 @@
+:root {
+  --kertas: #f7f3eb;
+  --kertas-2: #fffdf9;
+  --tinta: #1e1a16;
+  --tinta-2: #5a5249;
+  --tinta-3: #8b8275;
+  --terakota: #b3502a;
+  --terakota-tua: #8c3d1e;
+  --terakota-terang: #e08b5f;
+  --garis: #e0d7c7;
+  --garis-kuat: #c9bca6;
+  --salam: #4a6b52;
+  --gagal: #9b2c2c;
+  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Palatino", "Constantia", "Sitka Display", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "SF Mono", "Roboto Mono", ui-monospace, Menlo, monospace;
+  --lebar: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--tinta);
+  background-color: var(--kertas);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #e8cbb8;
+  color: var(--tinta);
+}
+
+:focus-visible {
+  outline: 2px solid var(--terakota);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: var(--lebar);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terakota);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--kertas);
+  border-bottom: 1px solid var(--garis);
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 62px;
+}
+
+.header__mark {
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--tinta);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header__mark:hover {
+  color: var(--terakota);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+.nav__link {
+  padding: 4px 20px;
+  font-size: 0.86rem;
+  color: var(--tinta-2);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.nav__link:first-child {
+  padding-left: 0;
+}
+
+.nav__link + .nav__link {
+  border-left: 1px solid var(--garis);
+}
+
+.nav__link:hover {
+  color: var(--tinta);
+  border-bottom-color: var(--terakota);
+}
+
+.hero {
+  padding: 76px 0 60px;
+  border-bottom: 1px solid var(--garis);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: end;
+}
+
+.hero__judul {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.9rem, 7.5vw, 5.4rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.hero__teks {
+  margin: 24px 0 0;
+  max-width: 48ch;
+  font-size: 1.05rem;
+  color: var(--tinta-2);
+}
+
+.hero__aksi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.fakta {
+  margin: 0;
+  border-top: 1px solid var(--garis);
+}
+
+.fakta__baris {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--garis);
+}
+
+.fakta__kunci {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--tinta-2);
+}
+
+.fakta__nilai {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  text-align: right;
+}
+
+.langkah {
+  background-color: var(--kertas-2);
+  border-bottom: 1px solid var(--garis);
+}
+
+.langkah__isi {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.langkah__item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0;
+  padding: 20px 24px 20px 0;
+  font-size: 0.95rem;
+}
+
+.langkah__item + .langkah__item {
+  padding-left: 24px;
+  border-left: 1px solid var(--garis);
+}
+
+.langkah__no {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--terakota);
+}
+
+.section {
+  padding: 68px 0;
+  border-bottom: 1px solid var(--garis);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section__kepala {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.section__judul {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.section__ket {
+  margin: 12px 0 0;
+  max-width: 54ch;
+  color: var(--tinta-2);
+}
+
+.cari {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 330px;
+}
+
+.cari__label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tinta-2);
+}
+
+.cari__input {
+  width: 100%;
+  padding: 8px 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--tinta);
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--garis-kuat);
+  border-radius: 0;
+  appearance: none;
+  transition: border-color 0.15s;
+}
+
+.cari__input::placeholder {
+  color: var(--tinta-3);
+}
+
+.cari__input:focus {
+  border-bottom-color: var(--terakota);
+}
+
+.villa-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  counter-reset: unit;
+  border-top: 1px solid var(--garis);
+}
+
+.villa-card {
+  counter-increment: unit;
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr) 14rem;
+  grid-template-areas:
+    "no head  price"
+    "no meta  status"
+    "no place aksi"
+    "no list  list";
+  gap: 6px 28px;
+  align-items: start;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--garis);
+  transition: background-color 0.15s;
+}
+
+.villa-card:hover {
+  background-color: var(--kertas-2);
+}
+
+.villa-card::before {
+  grid-area: no;
+  justify-self: start;
+  content: counter(unit, decimal-leading-zero);
+  padding-top: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--tinta-2);
+}
+
+.villa-card__nama {
+  grid-area: head;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.villa-card__info {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--tinta-2);
+}
+
+.villa-card__info:nth-of-type(1) {
+  grid-area: meta;
+}
+
+.villa-card__info:nth-of-type(2) {
+  grid-area: place;
+}
+
+.villa-card__price {
+  grid-area: price;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.villa-card__price small {
+  margin-left: 6px;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tinta-2);
+}
+
+.villa-card__fasilitas {
+  grid-area: list;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--tinta-2);
+}
+
+.villa-card__fasilitas li {
+  position: relative;
+  padding-left: 12px;
+}
+
+.villa-card__fasilitas li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 4px;
+  height: 4px;
+  background-color: var(--garis-kuat);
+}
+
+.villa-card__status {
+  grid-area: status;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.villa-card__status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: currentColor;
+}
+
+.villa-card__status--ada {
+  color: var(--salam);
+}
+
+.villa-card__status--habis {
+  color: var(--gagal);
+}
+
+.villa-card__tombol {
+  grid-area: aksi;
+  width: 100%;
+}
+
+.villa-kosong {
+  margin: 0;
+  padding: 26px;
+  color: var(--tinta-2);
+  border: 1px dashed var(--garis-kuat);
+}
+
+.pemesanan {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.form {
+  padding: 30px 32px 32px;
+  background-color: var(--kertas-2);
+  border: 1px solid var(--garis);
+}
+
+.form__baris {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+}
+
+.form__grup {
+  margin-bottom: 18px;
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--tinta-2);
+}
+
+.form__input {
+  width: 100%;
+  padding: 11px 13px;
+  font-family: var(--sans);
+  font-size: 0.96rem;
+  color: var(--tinta);
+  background-color: var(--kertas);
+  border: 1px solid var(--garis-kuat);
+  border-radius: 0;
+  appearance: none;
+  transition: border-color 0.15s;
+}
+
+.form__input:focus {
+  border-color: var(--terakota);
+  outline: 2px solid var(--terakota);
+  outline-offset: 1px;
+}
+
+.form__input--salah {
+  border-color: var(--gagal);
+}
+
+.form__error {
+  min-height: 1.2em;
+  margin: 6px 0 0;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--gagal);
+}
+
+.form__tombol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.tombol {
+  display: inline-block;
+  padding: 11px 20px;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: var(--tinta);
+  background-color: transparent;
+  border: 1px solid var(--tinta);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tombol--utama {
+  color: #ffffff;
+  background-color: var(--terakota);
+  border-color: var(--terakota);
+}
+
+.tombol--utama:hover:not(:disabled) {
+  background-color: var(--terakota-tua);
+  border-color: var(--terakota-tua);
+}
+
+.tombol--garis {
+  color: var(--tinta);
+  border-color: var(--garis-kuat);
+}
+
+.tombol--garis:hover:not(:disabled) {
+  color: var(--kertas);
+  background-color: var(--tinta);
+  border-color: var(--tinta);
+}
+
+.tombol--hapus {
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  color: var(--gagal);
+  border-color: var(--garis-kuat);
+}
+
+.tombol--hapus:hover:not(:disabled) {
+  color: #ffffff;
+  background-color: var(--gagal);
+  border-color: var(--gagal);
+}
+
+.tombol:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.hasil {
+  position: sticky;
+  top: 86px;
+  padding: 26px 28px 28px;
+  background-color: var(--kertas-2);
+  border: 1px solid var(--garis);
+  border-top: 3px solid var(--terakota);
+}
+
+.hasil__judul {
+  margin: 0 0 16px;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.hasil__kosong {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--tinta-2);
+}
+
+.hasil__tabel {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hasil__tabel td {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--garis);
+  font-size: 0.92rem;
+  vertical-align: top;
+}
+
+.hasil__tabel td:last-child {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.hasil__total td {
+  padding-top: 14px;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.hasil__total td:last-child {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.hasil__pesan {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--garis);
+  font-size: 0.9rem;
+}
+
+.hasil__pesan--ok {
+  color: var(--salam);
+}
+
+.hasil__pesan--gagal {
+  color: var(--gagal);
+}
+
+.pesanan {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--garis);
+}
+
+.pesanan:first-child {
+  border-top: 1px solid var(--garis);
+}
+
+.pesanan__nama {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.pesanan__detail {
+  margin: 6px 0 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--tinta-2);
+}
+
+.pesanan-kosong {
+  margin: 0;
+  padding: 24px;
+  color: var(--tinta-2);
+  border: 1px dashed var(--garis-kuat);
+}
+
+.footer {
+  padding: 56px 0 24px;
+  background-color: var(--tinta);
+  color: #cfc6b8;
+}
+
+.footer__isi {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 38px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer__tanda {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--kertas);
+  letter-spacing: -0.01em;
+}
+
+.footer__tag {
+  margin: 10px 0 0;
+  max-width: 34ch;
+  font-size: 0.9rem;
+  color: #a79c8c;
+}
+
+.footer__judul {
+  margin: 0 0 12px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terakota-terang);
+}
+
+.footer__blok p {
+  margin: 0 0 4px;
+  font-size: 0.92rem;
+}
+
+.footer__hak {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 24px;
+  margin: 20px 0 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: #8c8273;
+}
+
+@media (max-width: 980px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 44px;
+  }
+
+  .villa-card {
+    grid-template-columns: 3.4rem minmax(0, 1fr) 13.5rem;
+    grid-template-areas:
+      "no head  price"
+      "no meta  status"
+      "no place aksi"
+      "no list  list";
+  }
+
+  .villa-card__price {
+    font-size: 1.45rem;
+  }
+
+  .pemesanan {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .hasil {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 52px 0;
+  }
+
+  .section__kepala {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+  }
+
+  .cari {
+    max-width: none;
+  }
+
+  .langkah__isi {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .langkah__item {
+    padding: 14px 0;
+  }
+
+  .langkah__item + .langkah__item {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--garis);
+  }
+
+  .form__baris {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer__isi {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .villa-card {
+    grid-template-columns: 3.4rem minmax(0, 1fr);
+    grid-template-areas:
+      "no head"
+      ".  meta"
+      ".  place"
+      ".  list"
+      ".  price"
+      ".  status"
+      ".  aksi";
+  }
+
+  .villa-card__price {
+    text-align: left;
+  }
+
+  .villa-card__status {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  html {
+    scroll-padding-top: 116px;
+  }
+
+  .header__bar {
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .nav__link {
+    padding: 4px 14px;
+  }
+
+  .nav__link:first-child {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero {
+    padding: 48px 0 40px;
+  }
+
+  .hero__aksi .tombol {
+    width: 100%;
+  }
+
+  .form {
+    padding: 20px 18px 22px;
+  }
+
+  .form__tombol .tombol {
+    width: 100%;
+  }
+
+  .pesanan {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
